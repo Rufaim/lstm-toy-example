@@ -27,9 +27,12 @@ EPOCH = 2000
 [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
  0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20
 This is a sample output for a sequence which belongs to 4th class i.e has 4 ones
-
 '''
-train_input = ['{0:020b}'.format(i) for i in range(2**20)]
+train_input = ['{0:020b}'.format(i) for i in range(1,2**20)]
+'''
+For clearness let's exclude first class that have only one member
+'''
+
 np.random.shuffle(train_input)
 train_output = np.array([sum(map(lambda x: int(x),i)) for i in train_input])
 train_output = np.eye(NUM_CLASSES)[train_output]
